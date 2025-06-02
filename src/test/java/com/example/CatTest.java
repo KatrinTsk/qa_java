@@ -32,7 +32,6 @@ public class CatTest {
 
         // assert
         assertEquals(List.of("Животные", "Птицы", "Рыба"), result);
-        //verify(feline).eatMeat();
     }
 
 }

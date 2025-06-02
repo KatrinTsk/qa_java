@@ -36,20 +36,4 @@ class LionParameterizedTests {
         // Assert
         assertEquals(expectedHasMane, actualHasMane, message);
     }
-
-//    @ParameterizedTest
-//    @MethodSource("testLionSexProvider")
-//    void getKittens_ShouldCallFelineMethod(String sex) throws Exception {
-//        // Arrange
-//        when(feline.getKittens()).thenReturn(11);
-//        Lion lion = new Lion(sex, feline);
-//
-//        // Act
-//        int result = lion.getKittens();
-//
-//        // Assert
-//        assertEquals(11, result);
-//        verify(feline, times(1)).getKittens();
-//    }
-
 }
