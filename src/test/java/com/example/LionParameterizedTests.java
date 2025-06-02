@@ -10,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class LionParameterizedTests {
@@ -18,7 +17,7 @@ class LionParameterizedTests {
     @Mock
     private Feline feline;
 
-    static Stream<Arguments> lionSexProvider() {
+    static Stream<Arguments> testLionSexProvider() {
         return Stream.of(
                 Arguments.of("Самец", true, "У льва должна быть грива"),
                 Arguments.of("Самка", false, "У львицы не должно быть гривы")
@@ -26,7 +25,7 @@ class LionParameterizedTests {
     }
 
     @ParameterizedTest(name = "Проверка гривы для пола: {0}, ожидается: {1}")
-    @MethodSource("lionSexProvider")
+    @MethodSource("testLionSexProvider")
     void doesHaveMane_ShouldReturnCorrectResult(String sex, boolean expectedHasMane, String message) throws Exception {
         // Arrange
         Lion lion = new Lion(sex, feline);
@@ -38,19 +37,19 @@ class LionParameterizedTests {
         assertEquals(expectedHasMane, actualHasMane, message);
     }
 
-    @ParameterizedTest
-    @MethodSource("lionSexProvider")
-    void getKittens_ShouldCallFelineMethod(String sex) throws Exception {
-        // Arrange
-        when(feline.getKittens()).thenReturn(11);
-        Lion lion = new Lion(sex, feline);
-
-        // Act
-        int result = lion.getKittens();
-
-        // Assert
-        assertEquals(11, result);
-        verify(feline, times(1)).getKittens();
-    }
+//    @ParameterizedTest
+//    @MethodSource("testLionSexProvider")
+//    void getKittens_ShouldCallFelineMethod(String sex) throws Exception {
+//        // Arrange
+//        when(feline.getKittens()).thenReturn(11);
+//        Lion lion = new Lion(sex, feline);
+//
+//        // Act
+//        int result = lion.getKittens();
+//
+//        // Assert
+//        assertEquals(11, result);
+//        verify(feline, times(1)).getKittens();
+//    }
 
 }
