@@ -49,4 +49,5 @@ public class LionTest {
         List<String> expectedFood = List.of("Лань");
         assertEquals(expectedFood, lion.getFood());
     }
+
 }

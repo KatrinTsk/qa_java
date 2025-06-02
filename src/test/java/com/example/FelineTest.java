@@ -33,4 +33,5 @@ class FelineTest {
         int expectedCount = 5;
         assertEquals(expectedCount, feline.getKittens(expectedCount));
     }
+
 }

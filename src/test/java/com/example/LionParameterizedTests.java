@@ -52,4 +52,5 @@ class LionParameterizedTests {
         assertEquals(11, result);
         verify(feline, times(1)).getKittens();
     }
+
 }
